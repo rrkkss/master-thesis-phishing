@@ -1,8 +1,6 @@
 version: '3'
 
 services:
-
-  # PHP Service
   app:
     build:
       args:
@@ -21,23 +19,22 @@ services:
     networks:
       - app-network
 
-  # MySQL Service
   database:
-    image: mysql:5.7.22
+    image: mysql:8.0.36
     container_name: database
     restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
     tty: true
     ports:
-      - "4306:3306"
+      - "3306:3306"
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_PASSWORD: password
-      MYSQL_USER: user
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_DATABASE}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
     networks:
       - app-network
 
-  # Nginx Service
   webserver:
     image: nginx:alpine
     container_name: webserver
@@ -51,7 +48,6 @@ services:
     networks:
       - app-network
 
-# Networks Configuration
 networks:
   app-network:
     driver: bridge
