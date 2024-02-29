@@ -27,7 +27,7 @@
 
 <div class="small">
     <span class="small">
-        On this page you can log in University Information System. You use an assigned user name and a&nbsp;password. The password distinguishes upper case and low case letters. At the same time you can select after which period of inactivity the system logs you out.
+        On this page you can log in University Information System. You use an assigned user name and a password. The password distinguishes upper case and low case letters. At the same time you can select after which period of inactivity the system logs you out.
     </span>
 </div>
 
@@ -36,7 +36,7 @@
 <div class="uis_msg info">
     <div class="text">
         <p>
-            If you fail to log in or do not know the above mentioned information, please contact the&nbsp;
+            If you fail to log in or do not know the above mentioned information, please contact the
             <a href="https://www.oikt.czu.cz/en/r-16550-it-helpdesk">IT Helpdesk CZU</a>.
         </p>
     </div>
@@ -85,12 +85,12 @@
             style="text-align: justify; display: none"
         >
             <span class="small">
-            Please type the verification code that was sent to you in a&nbsp;text message to the box below. The code consists of two groups of letters and numbers separated with a&nbsp;dash. If you are logging in from a&nbsp;secure private device, you can select the option This a&nbsp;secure device - when you log in next time  from the same device, you won't need to type in the verification code.
+            Please type the verification code that was sent to you in a text message to the box below. The code consists of two groups of letters and numbers separated with a dash. If you are logging in from a secure private device, you can select the option This a secure device - when you log in next time  from the same device, you won't need to type in the verification code.
             </span>
         </div>
         <div class="2fa_rows help_rows" id="helpTextTOTP" style="text-align: justify; display: none">
             <span class="small">
-                Copy the one-time verification code from the application in your mobile device to the box below. Code is a&nbsp;six digit number.
+                Copy the one-time verification code from the application in your mobile device to the box below. Code is a six digit number.
             </span>
         </div>
         <div class="loginform-section">
@@ -98,7 +98,7 @@
                 <tbody>
                     <tr class=" password_rows" style="">
                         <td class="odsazena" align="left">
-                            User&nbsp;name
+                            User name
                         </td>
                         <td class="odsazena" align="left">
                             <input type="text" name="credential_0" size="20" maxlength="100" class="reqfields" id="credential_0" value="">
@@ -129,7 +129,7 @@
                         </td>
                         <td class="odsazena" colspan="2" align="left">
                             <input type="checkbox" name="credential_cookie" value="1">
-                            This a&nbsp;secure device (30 days)
+                            This a secure device (30 days)
                         </td>
                     </tr>
                 </tbody>
@@ -157,7 +157,7 @@
 <br>
 <div class="small">
     <span class="small">
-        <b>Tip: </b>A&nbsp;common problem is the Caps Lock key switched on/off or the keyboard set to a&nbsp;different language.
+        <b>Tip: </b>A common problem is the Caps Lock key switched on/off or the keyboard set to a different language.
     </span>
 </div>
 <br>
