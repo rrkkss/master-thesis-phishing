@@ -3,7 +3,7 @@ FROM php:8.1-fpm
 ARG user
 ARG uid
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
         libpng-dev \
         libjpeg-dev \
         libfreetype6-dev \
