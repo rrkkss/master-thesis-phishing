@@ -1,4 +1,5 @@
-/* base.css */
+<style>
+    /* base.css */
 img { border: 0; }
 .center { text-align: center; }
 span.acc { background-color: #cfcfcf; }
@@ -71,7 +72,7 @@ table.detailni_ramecek td { border: 1px solid black; }
 .hider a span{ display:block; background-position:center center; background-repeat:no-repeat; background-color:#ccc; position:absolute; width:21px; height:21px; right:0px; top:-11px; -moz-border-radius:3px; -webkit-border-radius:3px; -ms-border-radius:3px; border-radius:3px; }
 .hider:hover { border-top:1px solid #aaa; }
 .hider:hover a span{ background-color:#aaa; }
-.hider a span{ background-image: url('https://is.czu.cz/img.pl?sysid=hider-h'); transition: rotate .2s ease-in-out; }
+.hider a span{ background-image: url(/img.pl?sysid=hider-h); transition: rotate .2s ease-in-out; }
 .hider.hider-open a span{ rotate:-180deg; }
 .zasadky-info ul li{ list-style:none; background:transparent; }
 .translatedebug { background-color: cyan; color: black; }
@@ -180,7 +181,7 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
     top: 2px;
     height: 20px;
     width: 20px;
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-maximize') no-repeat;
+    background: url( /img.pl?sysid=base-dialog-maximize ) no-repeat;
     cursor: pointer;
 }
 
@@ -190,7 +191,7 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
     top: 2px;
     height: 20px;
     width: 20px;
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-reset') no-repeat;
+    background: url( /img.pl?sysid=base-dialog-reset ) no-repeat;
     cursor: pointer;
 }
 
@@ -200,7 +201,7 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
     top: 2px;
     height: 20px;
     width: 20px;
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-freeze') no-repeat;
+    background: url( /img.pl?sysid=base-dialog-freeze ) no-repeat;
     cursor: pointer;
 }
 
@@ -210,7 +211,7 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
     top: 2px;
     height: 20px;
     width: 20px;
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-minimize') no-repeat;
+    background: url( /img.pl?sysid=base-dialog-minimize ) no-repeat;
     cursor: pointer;
 }
 
@@ -220,7 +221,7 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
     top: 2px;
     height: 20px;
     width: 20px;
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-back') no-repeat;
+    background: url( /img.pl?sysid=base-dialog-back ) no-repeat;
     cursor: pointer;
 }
 
@@ -230,12 +231,12 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
     top: 2px;
     height: 20px;
     width: 20px;
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-close') no-repeat;
+    background: url( /img.pl?sysid=base-dialog-close ) no-repeat;
     cursor: pointer;
 }
 
 .uis-context-help-frozen {
-    background: url('https://is.czu.cz/img.pl?sysid=base-dialog-unfreeze') no-repeat !important;
+    background: url( /img.pl?sysid=base-dialog-unfreeze ) no-repeat !important;
 }
 
 .uis-context-help-minimized {
@@ -259,8 +260,8 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
 #uis-context-help-reader .quote::before, .help .quote::before { content: open-quote; }
 #uis-context-help-reader .quote::after, .help .quote::after { content: close-quote; }
 #uis-context-help-reader .hint, #uis-context-help-reader .note, .help .hint, .help .note { background-size: 33px 33px; background-repeat: no-repeat; background-position: 4px 4px; padding: 10px 10px 10px 45px; vertical-align: middle; border-radius: 5px; margin: 10px 0px; }
-#uis-context-help-reader .note, .help .note { background-image: url('https://is.czu.cz/img.pl?sysid=dekorace-info'); background-color: #DCF2FA; border: 1px solid #A0E2FA; }
-#uis-context-help-reader .hint, .help .hint { background-image: url('https://is.czu.cz/img.pl?sysid=dekorace-crit'); background-color: #FFEAE6; border: 1px solid #FFB4A6; }
+#uis-context-help-reader .note, .help .note { background-image: url( /img.pl?sysid=dekorace-info ); background-color: #DCF2FA; border: 1px solid #A0E2FA; }
+#uis-context-help-reader .hint, .help .hint { background-image: url( /img.pl?sysid=dekorace-crit ); background-color: #FFEAE6; border: 1px solid #FFB4A6; }
 #uis-context-help-reader .icon-inline, .help .icon-inline { max-height: 20px; position: relative; top: 5px; }
 #uis-context-help-reader .ucfirst, .help .ucfirst { display: inline-block; }
 @-moz-document url-prefix() { #uis-context-help-reader .ucfirst, .help .ucfirst { display: inline-block; margin-right: -0.6em } }
@@ -268,12 +269,12 @@ h1 a.context-help-invoke { vertical-align: middle; display: inline-block; margin
 #uis-context-help-reader .ucfirst:first-letter, .help .ucfirst:first-letter { text-transform: uppercase; }
 #uis-context-help-reader .lcfirst:first-letter, .help .lcfirst:first-letter { text-transform: lowercase; }
 
-.cerveny_on { background-image: url('https://is.czu.cz/img.pl?sysid=helpdesk-pin-admin'); }
-.cerveny_off { background-image: url('https://is.czu.cz/img.pl?sysid=helpdesk-pin-admin-zrus'); }
-.zluty_on { background-image: url('https://is.czu.cz/img.pl?sysid=helpdesk-pin-uziv'); }
-.zluty_off { background-image: url('https://is.czu.cz/img.pl?sysid=helpdesk-pin-uziv-zrus'); }
-.modry_on { background-image: url('https://is.czu.cz/img.pl?sysid=helpdesk-pin-ukol'); }
-.modry_off { background-image: url('https://is.czu.cz/img.pl?sysid=helpdesk-pin-ukol-zrus'); }
+.cerveny_on { background-image: url('/img.pl?sysid=helpdesk-pin-admin'); }
+.cerveny_off { background-image: url('/img.pl?sysid=helpdesk-pin-admin-zrus'); }
+.zluty_on { background-image: url('/img.pl?sysid=helpdesk-pin-uziv'); }
+.zluty_off { background-image: url('/img.pl?sysid=helpdesk-pin-uziv-zrus'); }
+.modry_on { background-image: url('/img.pl?sysid=helpdesk-pin-ukol'); }
+.modry_off { background-image: url('/img.pl?sysid=helpdesk-pin-ukol-zrus'); }
 
 .UISSuggestPanel { font-family: sans-serif; }
 
@@ -2633,3 +2634,4 @@ padding:0; line-height: 1.5em;
  clear:both;
 margin-top:40px;
 } 
+</style>
