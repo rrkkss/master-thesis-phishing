@@ -6,7 +6,7 @@
 
         <title>UIS</title>
         
-        @include('css')
+        <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
     </head>
     <body class="antialiased">
         <div id="listicka">
@@ -84,5 +84,6 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="{{URL::asset('js/app.js')}}"></script>
     </body>
 </html>
