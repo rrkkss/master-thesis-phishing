@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>University information system</title>
+        <title>{{ \App\Helpers\AppHelper::getSiteName(request()->get('lang')) }}</title>
         <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
     </head>
+
     <body class="antialiased">
         <div id="listicka">
             <div id="head">
@@ -27,7 +28,7 @@
                          src="https://is.czu.cz/img.pl?userunid=83"
                          title=""
                          alt=""
-                    > {{ \App\Helpers\AppHelper::getCurrentDate() }} - 4. (even) week with classes (SS 2023/2024)
+                    > {{ \App\Helpers\AppHelper::getCurrentDate(request()->get('lang')) }} - {{\App\Helpers\AppHelper::getWeekInfo(request()->get('lang'))}}
                     &nbsp;
                     <img class="in-header"
                          src="https://is.czu.cz/img.pl?userunid=84"
@@ -35,6 +36,8 @@
                          alt=""
                     > &nbsp; {{ \App\Helpers\AppHelper::getNamedayPerson() }}
                     &nbsp;
+                    
+                    @if (\App\Helpers\AppHelper::canShowCzech(request()->get('lang')))
                     <a href="?lang=cs">
                         <img
                             class="in-header"
@@ -42,6 +45,8 @@
                             title="Česká verze"
                             alt="">
                     </a>
+                    @endif
+                    @if (\App\Helpers\AppHelper::canShowSlovakian(request()->get('lang')))
                     <a href="?lang=sk">
                         <img
                             class="in-header"
@@ -49,6 +54,16 @@
                             title="Slovenská verzia"
                             alt="">
                     </a>
+                    @endif
+                    @if (\App\Helpers\AppHelper::canShowEnglish(request()->get('lang')))
+                    <a href="?lang=en">
+                        <img 
+                            class="in-header" 
+                            src="https://is.czu.cz/img.pl?userunid=12" 
+                            title="English version"
+                            alt="">
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -56,7 +71,7 @@
         <div id="hlavicka">
             <div id="head2">
                 <div id="univerzita">
-                    University information system
+                    {{ \App\Helpers\AppHelper::getSiteName(request()->get('lang')) }}
                 </div>
             </div>
         </div>

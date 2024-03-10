@@ -32,9 +32,64 @@ class AppHelper
         '31' => 'Kvído',
     ];
 
-    public static function getCurrentDate() : string
+    public static function getCurrentDate(?string $lang) : string
     {
-        return Carbon::parse(now())->format('M d, Y g:i a');
+        if (!$lang) {
+            $lang = app()->getlocale();
+        }
+
+        switch ($lang) {
+            case 'en':
+                return Carbon::parse(now())->format('M d, Y g:i a');
+                break;
+            default:
+                return now()->format('d. m. Y H:i');
+                break;
+        }
+    }
+
+    public static function getWeekInfo(?string $lang) : string
+    {
+        if (!$lang) {
+            $lang = app()->getlocale();
+        }
+
+        switch ($lang) {
+            case 'en':
+                return '4. (even) week with classes (SS 2023/2024)';
+                break;
+            case 'sk':
+                return '4. (sudý) výukový týden (LS 2023/2024)';
+                break;
+            case 'cs':
+                return '4. (párny) výučbový týždeň (LS 2023/2024)';
+                break;
+            default:
+                return '4. (sudý) výukový týden (LS 2023/2024)';
+                break;
+        }
+    }
+
+    public static function getSiteName(?string $lang) : string
+    {
+        if (!$lang) {
+            $lang = app()->getlocale();
+        }
+
+        switch ($lang) {
+            case 'en':
+                return 'University information system';
+                break;
+            case 'sk':
+                return 'Univerzitný informačný systém';
+                break;
+            case 'cs':
+                return 'Univerzitní informační systém';
+                break;
+            default:
+                return 'Univerzitní informační systém';
+                break;
+        }
     }
 
     public static function getLang(Request $request) : string
@@ -54,5 +109,44 @@ class AppHelper
         }
 
         return 'Ruprecht';
+    }
+    
+    public static function canShowCzech(?string $lang) : bool
+    {
+        if ($lang === 'en' || $lang == 'sk') {
+            return true;
+        }
+
+        if ((app()->getLocale() === 'en' || app()->getLocale() === 'sk') && !$lang) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function canShowSlovakian(?string $lang) : bool
+    {
+        if ($lang === 'en' || $lang == 'cs') {
+            return true;
+        }
+
+        if ((app()->getLocale() === 'en' || app()->getLocale() === 'cs') && !$lang) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function canShowEnglish(?string $lang) : bool
+    {
+        if ($lang === 'cs' || $lang == 'sk') {
+            return true;
+        }
+
+        if ((app()->getLocale() === 'cs' || app()->getLocale() === 'sk') && !$lang) {
+            return true;
+        }
+
+        return false;
     }
 }

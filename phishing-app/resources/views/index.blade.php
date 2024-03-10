@@ -145,7 +145,7 @@
         </tr>
         <tr class="">
             <td class="odsazena" align="left">
-                &nbsp;4
+                &nbsp;
             </td>
         </tr>
         <tr class="">
@@ -337,6 +337,7 @@
 </table>
 
 <ul id="navig-footer">
+    @if (\App\Helpers\AppHelper::canShowCzech(request()->get('lang')))
     <li>
         <i>
             <a href="/?lang=cz">
@@ -344,6 +345,8 @@
             </a>
         </i>
     </li>
+    @endif
+    @if (\App\Helpers\AppHelper::canShowSlovakian(request()->get('lang')))
     <li>
         <i>
             <a href="/?lang=sk">
@@ -351,6 +354,16 @@
             </a>
         </i>
     </li>
+    @endif
+    @if (\App\Helpers\AppHelper::canShowEnglish(request()->get('lang')))
+    <li>
+        <i>
+            <a href="/?lang=en">
+               English version of the information system
+            </a>
+        </i>
+    </li>
+    @endif
 </ul>
 
 <div
