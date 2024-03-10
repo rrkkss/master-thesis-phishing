@@ -25,15 +25,15 @@
                 </div>
                 <div id="svatek">
                     <img class="in-header"
-                         src="https://is.czu.cz/img.pl?userunid=83"
-                         title=""
-                         alt=""
+                        src="https://is.czu.cz/img.pl?userunid=83"
+                        title=""
+                        alt=""
                     > {{ \App\Helpers\AppHelper::getCurrentDate(request()->get('lang')) }} - {{\App\Helpers\AppHelper::getWeekInfo(request()->get('lang'))}}
                     &nbsp;
                     <img class="in-header"
-                         src="https://is.czu.cz/img.pl?userunid=84"
-                         title=""
-                         alt=""
+                        src="https://is.czu.cz/img.pl?userunid=84"
+                        title=""
+                        alt=""
                     > &nbsp; {{ \App\Helpers\AppHelper::getNamedayPerson() }}
                     &nbsp;
                     
@@ -57,9 +57,9 @@
                     @endif
                     @if (\App\Helpers\AppHelper::canShowEnglish(request()->get('lang')))
                     <a href="?lang=en">
-                        <img 
-                            class="in-header" 
-                            src="https://is.czu.cz/img.pl?userunid=12" 
+                        <img
+                            class="in-header"
+                            src="https://is.czu.cz/img.pl?userunid=12"
                             title="English version"
                             alt="">
                     </a>
@@ -79,16 +79,16 @@
         <div id="menu_top">
             <div id="log">
                 &nbsp;
-			</div>
+            </div>
             <div id="ema">
                 <span id="navbar-info-text">&nbsp;</span>
                 &nbsp;&nbsp;&nbsp;
                 <span id="navbar-info-text">&nbsp;</span>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <span id="navbar-info-text">&nbsp;</span>
-		    </div>
+            </div>
             <div id="ikonky">
-		    </div>
+            </div>
         </div>
 
         <div id="base">

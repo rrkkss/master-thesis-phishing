@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-class IndexTranslationData 
+class IndexTranslationData
 {
     public string $title = '';
     public string $administration = '';
@@ -103,7 +103,7 @@ class IndexTranslationData
     }
 }
 
-class AuthTranslationData 
+class AuthTranslationData
 {
     public string $title = '';
     public string $infoText = '';
@@ -167,6 +167,8 @@ class AuthTranslationData
 
 class TranslationHelper
 {
+    private const OFFICE = 'Přihlásit účtem ČZU (Microsoft 365).';
+
     public static function getEnglishIndex() : IndexTranslationData
     {
         return new IndexTranslationData(
@@ -287,7 +289,7 @@ class TranslationHelper
             'IT Helpdesk CZU',
             'If you are an applicant, use the application:',
             'Log in to study applications system',
-            'Přihlásit účtem ČZU (Microsoft 365).',
+            self::OFFICE,
             'User name',
             'Password',
             'Log in',
@@ -309,7 +311,7 @@ class TranslationHelper
             'IT Helpdesk ČZU',
             'Pokud jste uchazeč/ka, použijte aplikaci:',
             'Přihlášení do systému přihlášek',
-            'Přihlásit účtem ČZU (Microsoft 365).',
+            self::OFFICE,
             'Přihlašovací jméno',
             'Heslo',
             'Přihlásit se',
@@ -331,7 +333,7 @@ class TranslationHelper
             'IT Helpdesk ČPU',
             'Ak ste uchádzač/ka, použite aplikáciu:',
             'Prihlásenie do systému prihlášok',
-            'Přihlásit účtem ČZU (Microsoft 365).',
+            self::OFFICE,
             'Prihlasovacie meno',
             'Heslo',
             'Log in',

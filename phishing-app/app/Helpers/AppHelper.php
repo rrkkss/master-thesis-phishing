@@ -38,14 +38,11 @@ class AppHelper
             $lang = app()->getlocale();
         }
 
-        switch ($lang) {
-            case 'en':
-                return Carbon::parse(now())->format('M d, Y g:i a');
-                break;
-            default:
-                return now()->format('d. m. Y H:i');
-                break;
+        if ($lang === 'en') {
+            return Carbon::parse(now())->format('M d, Y g:i a');
         }
+
+        return now()->format('d. m. Y H:i');
     }
 
     public static function getWeekInfo(?string $lang) : string

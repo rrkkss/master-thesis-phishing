@@ -25,9 +25,7 @@
     </span>
 </div>
 <br>
-<big>
     <b>Access to information system</b>
-</big>
 <p></p>
 
 <div class="small">
@@ -39,7 +37,7 @@
 
 <div class="small">
     <span class="small">
-        All users can access UIS at: 
+        All users can access UIS at:
         <a href="https://isczu.cz/">https://is.czu.cz/</a>
     </span>
 </div>
@@ -54,11 +52,11 @@
 
 <div class="small">
     <span class="small">
-        <b>Students and staff</b> log into the 
+        <b>Students and staff</b> log into the
         <a href="https://isczu.cz/auth/">Log in to the Personal administration of UIS</a> application.<br>
-        <b>Applicants</b> log into the 
+        <b>Applicants</b> log into the
         <a href="https://is.czu.cz/prihlaska/">E-application form to study at CZU</a> application.<br>
-        <b>Admitted applicants</b> log into the 
+        <b>Admitted applicants</b> log into the
         <a href="https://is.czu.cz/navratka/">Pre-enrollment confirmation for application to study at CZU</a> application.
     </span>
 </div>
@@ -73,9 +71,7 @@
     </span>
 </div>
 <br>
-<big>
     <b>Secure login into the system</b>
-</big>
 <p></p>
 
 <div class="small">
@@ -96,9 +92,7 @@
     </span>
 </div>
 <br>
-<big>
     <b>What to do if you have problems</b>
-</big>
 <p></p>
 <div class="small">
     <span class="small">

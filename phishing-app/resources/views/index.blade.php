@@ -56,15 +56,15 @@
 <table width="980">
     <tbody>
         <tr class="">
-            <td 
-                class="odsazena" 
-                width="70" 
-                align="center" 
+            <td
+                class="odsazena"
+                width="70"
+                align="center"
                 valign="top"
             >
-                <img 
-                    src="https://is.czu.cz/img.pl?unid=17780" 
-                    alt="" 
+                <img
+                    src="https://is.czu.cz/img.pl?unid=17780"
+                    alt=""
                     sysid="menu-osobni-administrativa"
                 >
             </td>
@@ -102,15 +102,15 @@
             </td>
         </tr>
         <tr class="">
-            <td 
+            <td
                 class="odsazena"
                 width="70"
                 align="center"
                 valign="top"
             >
-                <img 
-                    src="https://is.czu.cz/img.pl?unid=2966" 
-                    alt="" 
+                <img
+                    src="https://is.czu.cz/img.pl?unid=2966"
+                    alt=""
                     sysid="menu-prijimaci-rizeni"
                 >
             </td>
@@ -298,7 +298,7 @@
                 align="center"
                 valign="top"
             >
-                <img 
+                <img
                     src="https://is.czu.cz/img.pl?unid=395"
                     alt=""
                     sysid="menu-info-o-UIS"
@@ -376,7 +376,6 @@
 <div
     id="automatic-back-to-home"
     title="Na začátek stránky"
-    style=""
 >
     <span id="arrowup">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.4 122.88">

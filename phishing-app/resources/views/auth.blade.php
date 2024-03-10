@@ -99,7 +99,7 @@
         <div class="loginform-section">
             <table>
                 <tbody>
-                    <tr class=" password_rows" style="">
+                    <tr class=" password_rows">
                         <td class="odsazena" align="left">
                             {{$translation->userName}}
                         </td>
@@ -107,7 +107,7 @@
                             <input type="text" name="credential_0" size="20" maxlength="100" class="reqfields" id="credential_0" value="">
                         </td>
                     </tr>
-                    <tr class=" password_rows" style="">
+                    <tr class=" password_rows">
                         <td class="odsazena" align="left">
                             {{$translation->password}}
                         </td>
