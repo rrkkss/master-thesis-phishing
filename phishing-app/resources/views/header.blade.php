@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>UIS</title>
-        
+        <title>University information system</title>
+        <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
     </head>
     <body class="antialiased">
@@ -26,22 +25,24 @@
                 <div id="svatek">
                     <img class="in-header"
                          src="https://is.czu.cz/img.pl?userunid=83"
-                         title="Today is"
+                         title=""
                          alt=""
-                    > Feb 26, 2024 3:50 p.m. - 3. (odd) week with classes (SS 2023/2024)
+                    > {{ \App\Helpers\AppHelper::getCurrentDate() }} - 4. (even) week with classes (SS 2023/2024)
+                    &nbsp;
                     <img class="in-header"
                          src="https://is.czu.cz/img.pl?userunid=84"
-                         title="We celebrate the name day of"
+                         title=""
                          alt=""
-                    > Dorota
-                    <a href="">
+                    > &nbsp; {{ \App\Helpers\AppHelper::getNamedayPerson() }}
+                    &nbsp;
+                    <a href="?lang=cs">
                         <img
                             class="in-header"
                             src="https://is.czu.cz/img.pl?userunid=115"
                             title="Česká verze"
                             alt="">
                     </a>
-                    <a href="">
+                    <a href="?lang=sk">
                         <img
                             class="in-header"
                             src="https://is.czu.cz/img.pl?userunid=40"
