@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
-            University information system
+            {{ $translation->title }}
         </li>
     </ol>
 </nav>
@@ -73,25 +73,25 @@
             </td>
             <td class="odsazena" align="left">
                 <span class="sekce-nadpis">
-                    <b>Personal administration</b>
+                    <b>{{$translation->administration}}</b>
                 </span>
                 <br><br>
                 &nbsp;•&nbsp;&nbsp;
                 <a href="/auth/">
                     <b>
                         <span class="nowrap">
-                            Log in to the Personal administration of UIS
+                            {{$translation->administrationLogin}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/navod/">
                     <span class="nowrap">
-                        First log in to UIS instructions
+                        {{$translation->administrationFirstLogin}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/dok/integratori.pl">
                     <span class="nowrap">
-                        System integrators
+                        {{$translation->administrationIntegrators}}
                     </span>
                 </a>
             </td>
@@ -119,25 +119,25 @@
             </td>
             <td class="odsazena" align="left">
                 <span class="sekce-nadpis">
-                    <b>Admission procedure</b>
+                    <b>{{$translation->admission}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
                 <a href="/prihlaska/">
                     <b>
                         <span class="nowrap">
-                            E-application form to study at CZU
+                            {{$translation->admissionApplication}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;
                 <a href="/prijimacky/verejne_vysledky.pl">
                     <span class="nowrap">
-                        Admission procedure results
+                        {{$translation->admissionResults}}
                     </span>
-                </a>•&nbsp;&nbsp;
+                </a><br>&nbsp;•&nbsp;&nbsp;
                 <a href="/navratka/">
                     <b>
                         <span class="nowrap">
-                            Pre-enrollment confirmation for application to study at CZU
+                            {{$translation->admissionEnrollment}}
                         </span>
                     </b>
                 </a>
@@ -145,7 +145,7 @@
         </tr>
         <tr class="">
             <td class="odsazena" align="left">
-                &nbsp;
+                &nbsp;4
             </td>
         </tr>
         <tr class="">
@@ -166,17 +166,17 @@
             </td>
             <td class="odsazena" align="left">
                 <span class="sekce-nadpis">
-                    <b>Information about CZU</b>
+                    <b>{{$translation->czu}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
                 <a href="/pracoviste/pracoviste.pl">
                     <span class="nowrap">
-                        Departments
+                        {{$translation->czuDepartments}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/dok_server/">
                     <span class="nowrap">
-                        Public document server
+                        {{$translation->czuDocuments}}
                     </span>
                 </a>
             </td>
@@ -204,48 +204,48 @@
             </td>
             <td class="odsazena" align="left">
                 <span class="sekce-nadpis">
-                    <b>Study information</b>
+                    <b>{{$translation->study}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
                 <a href="/student/harmonogram.pl">
                     <span class="nowrap">
-                        Academic year schedule
+                        {{$translation->studySchedule}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/katalog/plany.pl">
                     <b>
                         <span class="nowrap">
-                            Study plans
+                            {{$translation->studyPlans}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/katalog/">
                     <b>
                         <span class="nowrap">
-                            Course catalogue
+                            {{$translation->studyCourses}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/katalog/dohody.pl">
                     <span class="nowrap">
-                        Agreements with foreign partners
+                        {{$translation->studyAgreements}}
                     </span>
-                </a> &nbsp;•&nbsp;&nbsp;
+                </a> <br>&nbsp;•&nbsp;&nbsp;
                 <a href="/zp/">
                     <b>
                         <span class="nowrap">
-                            Final theses at CZU
+                            {{$translation->studyTheses}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/katalog/rozvrhy_view.pl">
                     <span class="nowrap">
-                        Timetables
+                        {{$translation->studyTimetables}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/financovani/index.pl">
                     <span class="nowrap">
-                        Study financing
+                        {{$translation->studyFinancing}}
                     </span>
                 </a>
             </td>
@@ -273,13 +273,13 @@
             </td>
             <td class="odsazena" align="left">
                 <span class="sekce-nadpis">
-                    <b>Jobs portal</b>
+                    <b>{{$translation->jobs}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
                 <a href="/praxe/index.pl">
-                    <b>.
+                    <b>
                         <span class="nowrap">
-                            Registration of a company to Internship Portal
+                            {{$translation->jobsRegistration}}
                         </span>
                     </b>
                 </a>
@@ -309,25 +309,25 @@
             </td>
             <td class="odsazena" align="left">
                 <span class="sekce-nadpis">
-                    <b>About the information system</b>
+                    <b>{{$translation->system}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
                 <a href="/dok/help.pl">
                     <b>
                         <span class="nowrap">
-                            UIS documentation
+                            {{$translation->systemUis}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
                 <a href="/system/agregat.pl">
                     <span class="nowrap">
-                        Statistics of using UIS
+                        {{$translation->systemStatistics}}
                     </span>
-                </a> &nbsp;•&nbsp;&nbsp;
+                </a><br>&nbsp;•&nbsp;&nbsp;
                 <a href="http://www.uis-info.com">
                     <b>
                         <span class="nowrap">
-                            Are you thinking of implementing a study information system at your university?
+                            {{$translation->systemImplementation}}
                         </span>
                     </b>
                 </a>
