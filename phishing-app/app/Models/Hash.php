@@ -6,10 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hash extends Model
 {
-    // public static function boot()
-    // {
-
-    // }
-
-    
+    protected $guarded = [];
 }

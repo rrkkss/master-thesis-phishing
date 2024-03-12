@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         curl \
         unzip \
+        whois \
+        netbase \
     && apt-get clean
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
