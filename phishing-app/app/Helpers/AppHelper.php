@@ -55,10 +55,10 @@ class AppHelper
             case 'en':
                 return '4. (even) week with classes (SS 2023/2024)';
                 break;
-            case 'sk':
+            case 'cs':
                 return '4. (sudý) výukový týden (LS 2023/2024)';
                 break;
-            case 'cs':
+            case 'sk':
                 return '4. (párny) výučbový týždeň (LS 2023/2024)';
                 break;
             default:
@@ -145,5 +145,21 @@ class AppHelper
         }
 
         return false;
+    }
+
+    public static function setParameters(string $lang = null, string $reset = null) : string
+    {
+        $lang ??= request()->get('lang');
+        $reset ??= request()->get('reset');
+
+        if ($lang && !$reset) {
+            return "?lang={$lang}";
+        } elseif (!$lang && $reset) {
+            return "?reset={$reset}";
+        } elseif ($lang && $reset) {
+            return "?lang={$lang}&reset={$reset}";
+        }
+
+        return "";
     }
 }

@@ -5,7 +5,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="/">
+            <a href="/{{ \App\Helpers\AppHelper::setParameters() }}">
                 <img
                     src="https://is.czu.cz/img.pl?unid=18661"
                     alt=""
@@ -32,13 +32,6 @@
                     </td>
                     <td class="odsazena" align="left">
                         •&nbsp;
-                        <!-- <a
-                            href="javascript:void(0);"
-                            onclick="uis.box.open_fixed(
-                                '1',
-                                '<big><b>Návod - Kontaktní centrum - student</b></big><p /><div class=&quot;small&quot;><span class=&quot;small&quot;><p class=&quot;MsoNormal&quot; style=&quot;margin-bottom:8.0pt&quot;><span style=&quot;font-size: 12pt;&quot;>Jakou žádost můžu podat? Kde? Jak doplnit přílohy? <u1:p class=&quot;ContentPasted0&quot;>&nbsp;</u1:p></span><span style=&quot;font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif;&quot;><o:p></o:p></span></p><p><span style=&quot;font-size: 11pt; font-family: Calibri, sans-serif;&quot;>Návod je tady:&nbsp;<a href=&quot;"https://czuvpraze.sharepoint.com/sites/tf/Sdilene%20dokumenty/Navody/Kontaktn%C3%AD%20centrum%20-%20n%C3%A1vod%20pro%20studenty.pdf&quot; contenteditable=&quot;false&quot; data-ogsc=&quot;&quot;>pro studenty</a></span></p></span></div><br />');" -->
-                                <!-- >Návod - Kontaktní centrum - student -->
-
                         <a
                             href="javascript:void(0)"
                             onclick="open_helper_modal()"
@@ -77,19 +70,19 @@
                 </span>
                 <br><br>
                 &nbsp;•&nbsp;&nbsp;
-                <a href="/auth/">
+                <a href="/auth{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->administrationLogin}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/navod/">
+                <a href="/navod{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->administrationFirstLogin}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/dok/integratori.pl">
+                <a href="/dok/integratori.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->administrationIntegrators}}
                     </span>
@@ -122,19 +115,19 @@
                     <b>{{$translation->admission}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
-                <a href="/prihlaska/">
+                <a href="/prihlaska{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->admissionApplication}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;
-                <a href="/prijimacky/verejne_vysledky.pl">
+                <a href="/prijimacky/verejne_vysledky.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->admissionResults}}
                     </span>
                 </a><br>&nbsp;•&nbsp;&nbsp;
-                <a href="/navratka/">
+                <a href="/navratka/{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->admissionEnrollment}}
@@ -169,12 +162,12 @@
                     <b>{{$translation->czu}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
-                <a href="/pracoviste/pracoviste.pl">
+                <a href="/pracoviste/pracoviste.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->czuDepartments}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/dok_server/">
+                <a href="/dok_server/{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->czuDocuments}}
                     </span>
@@ -207,43 +200,43 @@
                     <b>{{$translation->study}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
-                <a href="/student/harmonogram.pl">
+                <a href="/student/harmonogram.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->studySchedule}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/katalog/plany.pl">
+                <a href="/katalog/plany.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->studyPlans}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/katalog/">
+                <a href="/katalog{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->studyCourses}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/katalog/dohody.pl">
+                <a href="/katalog/dohody.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->studyAgreements}}
                     </span>
                 </a> <br>&nbsp;•&nbsp;&nbsp;
-                <a href="/zp/">
+                <a href="/zp{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->studyTheses}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/katalog/rozvrhy_view.pl">
+                <a href="/katalog/rozvrhy_view.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->studyTimetables}}
                     </span>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/financovani/index.pl">
+                <a href="/financovani/index.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->studyFinancing}}
                     </span>
@@ -276,7 +269,7 @@
                     <b>{{$translation->jobs}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
-                <a href="/praxe/index.pl">
+                <a href="/praxe/index.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->jobsRegistration}}
@@ -312,14 +305,14 @@
                     <b>{{$translation->system}}</b>
                 </span>
                 <br><br>&nbsp;•&nbsp;&nbsp;
-                <a href="/dok/help.pl">
+                <a href="/dok/help.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <b>
                         <span class="nowrap">
                             {{$translation->systemUis}}
                         </span>
                     </b>
                 </a> &nbsp;•&nbsp;&nbsp;
-                <a href="/system/agregat.pl">
+                <a href="/system/agregat.pl{{ \App\Helpers\AppHelper::setParameters() }}">
                     <span class="nowrap">
                         {{$translation->systemStatistics}}
                     </span>
@@ -340,7 +333,7 @@
     @if (\App\Helpers\AppHelper::canShowCzech(request()->get('lang')))
     <li>
         <i>
-            <a href="/?lang=cz">
+            <a href="/?lang=cz{{request()->get('reset') ? "&reset=" . request()->get('reset') : ""}}">
                 Česká verze informačního systému (Czech version)
             </a>
         </i>
@@ -349,7 +342,7 @@
     @if (\App\Helpers\AppHelper::canShowSlovakian(request()->get('lang')))
     <li>
         <i>
-            <a href="/?lang=sk">
+            <a href="/?lang=sk{{request()->get('reset') ? "&reset=" . request()->get('reset') : ""}}">
                 Slovenská verzia informačného systému (Slovak version)
             </a>
         </i>
@@ -358,7 +351,7 @@
     @if (\App\Helpers\AppHelper::canShowEnglish(request()->get('lang')))
     <li>
         <i>
-            <a href="/?lang=en">
+            <a href="/?lang=en{{request()->get('reset') ? "&reset=" . request()->get('reset') : ""}}">
                English version of the information system
             </a>
         </i>

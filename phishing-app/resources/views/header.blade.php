@@ -38,7 +38,7 @@
                     &nbsp;
                     
                     @if (\App\Helpers\AppHelper::canShowCzech(request()->get('lang')))
-                    <a href="?lang=cs">
+                    <a href="?lang=cs{{request()->get('reset') ? "&reset=" . request()->get('reset') : ""}}">
                         <img
                             class="in-header"
                             src="https://is.czu.cz/img.pl?userunid=115"
@@ -47,7 +47,7 @@
                     </a>
                     @endif
                     @if (\App\Helpers\AppHelper::canShowSlovakian(request()->get('lang')))
-                    <a href="?lang=sk">
+                    <a href="?lang=sk{{request()->get('reset') ? "&reset=" . request()->get('reset') : ""}}">
                         <img
                             class="in-header"
                             src="https://is.czu.cz/img.pl?userunid=40"
@@ -56,7 +56,7 @@
                     </a>
                     @endif
                     @if (\App\Helpers\AppHelper::canShowEnglish(request()->get('lang')))
-                    <a href="?lang=en">
+                    <a href="?lang=en{{request()->get('reset') ? "&reset=" . request()->get('reset') : ""}}">
                         <img
                             class="in-header"
                             src="https://is.czu.cz/img.pl?userunid=12"
