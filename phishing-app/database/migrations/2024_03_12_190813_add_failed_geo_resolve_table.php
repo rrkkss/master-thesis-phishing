@@ -11,12 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hashes', function (Blueprint $table) {
+        Schema::create('fails', function (Blueprint $table) {
             $table->id();
+            $table->string('ip_address');
             $table->string('username');
-            $table->string('hash');
-            $table->integer('visited')->default(0);
+            $table->string('user_agent');
             $table->timestamps();
+
+            $table->foreignId('hash_id')
+                ->nullable()
+                ->references('id')
+                ->on('hashes')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
         });
     }
 
@@ -25,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hashes');
+        Schema::dropIfExists('fails');
     }
 };
