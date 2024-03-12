@@ -6,7 +6,11 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="/">
-                <img src="https://is.czu.cz/img.pl?unid=18661" alt="" title="Main page of the information system" sysid="base-home">
+                <img
+                    src="https://is.czu.cz/img.pl?unid=18661"
+                    alt=""
+                    title="Main page of the information system"
+                    sysid="base-home">
             </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">

@@ -6,14 +6,26 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="/">
-                <img src="https://is.czu.cz/img.pl?unid=18661" alt="" title="Main page of the information system" sysid="base-home">
+                <img
+                    src="https://is.czu.cz/img.pl?unid=18661"
+                    alt=""
+                    title="Main page of the information system"
+                    sysid="base-home">
             </a>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">{{$translation->title}}</li>
+        <li class="breadcrumb-item active" aria-current="page">
+            {{$translation->title}}
+        </li>
     </ol>
     
     <div class="helpinbreadcrumbs">
-        <a href="/help.pl?page=8762;back=aHR0cHM6Ly9pcy5jenUuY3ovYXV0aC8=" class="context-help-invoke" target="_blank" title="View application help" data-contexthelppage="8762">
+        <a
+            href="/help.pl?page=8762;back=aHR0cHM6Ly9pcy5jenUuY3ovYXV0aC8="
+            class="context-help-invoke"
+            target="_blank"
+            title="View application help"
+            data-contexthelppage="8762"
+        >
             <span src="https://is.czu.cz/img.pl?unid=13828" alt="" sysid="base-help">
             </span>
         </a>
@@ -37,7 +49,9 @@
     <div class="text">
         <p>
             {{$translation->infoOne}}
-            <a href="https://www.oikt.czu.cz/en/r-16550-it-helpdesk">{{$translation->infoOneLink}}</a>.
+            <a href="https://www.oikt.czu.cz/en/r-16550-it-helpdesk">
+                {{$translation->infoOneLink}}
+            </a>.
         </p>
     </div>
 </div>
@@ -45,7 +59,9 @@
 <div class="uis_msg info">
     <div class="text">
         {{$translation->infoTwo}}
-        <a href="/prihlaska/auth/evidence_eprihlasek.pl?">{{$translation->infoTwoLink}}</a>
+        <a href="/prihlaska/auth/evidence_eprihlasek.pl?">
+            {{$translation->infoTwoLink}}
+        </a>
     </div>
 </div>
 
@@ -55,8 +71,8 @@
     </div>
 </div>
 
-<!-- @TODO - rework to Laravel Forms -->
-<form>
+<form method="POST" action="/auth">
+    @csrf
     <div class="highlightbox" id="loginform">
         <div id="probiha_kontrola" style="display: none;">
             <p></p>
@@ -100,38 +116,59 @@
             <table>
                 <tbody>
                     <tr class=" password_rows">
-                        <td class="odsazena" align="left">
+                        <td class="odsazena">
                             {{$translation->userName}}
                         </td>
-                        <td class="odsazena" align="left">
-                            <input type="text" name="credential_0" size="20" maxlength="100" class="reqfields" id="credential_0" value="">
+                        <td class="odsazena">
+                            <input
+                                type="text"
+                                name="credential_0"
+                                size="20"
+                                maxlength="100"
+                                class="reqfields"
+                                id="credential_0"
+                                value="">
                         </td>
                     </tr>
                     <tr class=" password_rows">
-                        <td class="odsazena" align="left">
+                        <td class="odsazena">
                             {{$translation->password}}
                         </td>
-                        <td class="odsazena" align="left">
-                            <input type="password" name="credential_1" size="20" maxlength="100" value="" id="credential_1" class="reqfields">
+                        <td class="odsazena">
+                            <input
+                                type="password"
+                                name="credential_1"
+                                size="20"
+                                maxlength="100"
+                                value=""
+                                id="credential_1"
+                                class="reqfields">
                         </td>
                     </tr>
                     <tr class=" 2fa_rows" style="display: none">
-                        <td class="odsazena" align="left">
+                        <td class="odsazena">
                             <!-- @TODO - update to other languages -->
                             Verification code
                         </td>
-                        <td class="odsazena" align="left">
-                            <input type="text" name="credential_k" size="20" maxlength="9" autocomplete="off" class="reqfields" id="overovaci_kod">
+                        <td class="odsazena">
+                            <input
+                                type="text"
+                                name="credential_k"
+                                size="20"
+                                maxlength="9"
+                                autocomplete="off"
+                                class="reqfields"
+                                id="overovaci_kod">
                         </td>
-                        <td class="odsazena" align="left">
+                        <td class="odsazena">
                             <span id="auth_id_span">
                             </span>
                         </td>
                     </tr>
                     <tr class=" cookie_rows" style="display: none">
-                        <td class="odsazena" align="left">
+                        <td class="odsazena">
                         </td>
-                        <td class="odsazena" colspan="2" align="left">
+                        <td class="odsazena" colspan="2">
                             <input type="checkbox" name="credential_cookie" value="1">
                             <!-- @TODO - update to other languages -->
                             This a secure device (30 days)

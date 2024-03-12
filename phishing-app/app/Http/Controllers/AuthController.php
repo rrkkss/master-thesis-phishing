@@ -23,24 +23,21 @@ class AuthController extends BaseController
 
     public function store(Request $request)
     {
-
+        $username = $request->get('credential_0');
+        return view('success')->with(['username' => $username]);
     }
 
     private static function getTranslationData(string $lang) : HelpersAuthTranslationData
     {
         switch ($lang) {
             case 'en':
-                return TranslationHelper::getEnglishAuth();
-                break;
+                return TranslationHelper::getEnglishAuth(); break;
             case 'cs':
-                return TranslationHelper::getCzechAuth();
-                break;
+                return TranslationHelper::getCzechAuth(); break;
             case 'sk':
-                return TranslationHelper::getSlovakianAuth();
-                break;
+                return TranslationHelper::getSlovakianAuth(); break;
             default:
-                return TranslationHelper::getCzechAuth();
-                break;
+                return TranslationHelper::getCzechAuth(); break;
         }
     }
 }
