@@ -3978,7 +3978,31 @@ ul {
     margin-top: 40px;
 }
 
-.bullet-point-reset {
-    font-weight: 400;
-    color: black;
+.phishing-body {
+    padding: 5rem;
+}
+
+.phishing-warning {
+
+    border: solid 1rem transparent;
+    background: repeating-linear-gradient(
+        -45deg,
+        #fff,
+        #fff 10px,
+        #ff0 10px,
+        #ff0 20px
+    );
+}
+
+.phishing-warning-inner {
+    padding: 1rem;
+    background: #fff;
+}
+
+.phishing-data {
+    background-color: rgba(100, 255, 100, 0.3);
+}
+
+.phishing-wrong-data {
+    background-color: rgba(255, 100, 100, 0.3);
 }

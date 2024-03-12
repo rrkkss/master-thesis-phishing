@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Helpers\AppHelper;
 use App\Helpers\AuthTranslationData as HelpersAuthTranslationData;
+use App\Helpers\SuccessTranslationData;
 use App\Helpers\TranslationHelper;
+use App\Models\Fail;
 use App\Models\Hash;
 use App\Models\Login;
 use Error;
@@ -13,10 +15,14 @@ use Illuminate\Http\Request;
 
 class AuthController extends BaseController
 {
+    private const DEBUG_IP = '172.28.0.1';
+
     public function index(Request $request)
     {
         $lang = AppHelper::getLang($request);
         $translation = $this::getTranslationData($lang);
+
+        Hash::updateVisited($request->get('reset'));
 
         return view('auth')->with([
             'lang' => $lang,
@@ -26,14 +32,34 @@ class AuthController extends BaseController
 
     public function store(Request $request)
     {
+        $lang = $request->get('lang');
         $username = $request->get('credential_0');
-        $userAgent = $request->userAgent();
+        $userAgent = $request->userAgent() ?? "unknown";
         $ipAddress = $request->getIp() ?? $request->ip();
-        $geolocation = $this->getLocation($ipAddress);
         $hashId = Hash::where('username', '=', $username)
             ->get()
             ->pluck('id')
             ->first();
+        $geolocation = $this->getLocation($ipAddress, $username, $userAgent, $hashId);
+
+        $this->saveLogin($username, $userAgent, $geolocation, $hashId);
+
+        $successTranslation = self::getSuccessTranslationData(AppHelper::getLang($request));
+
+        return view('success')->with([
+            'username' => $username,
+            'useragent' => $userAgent,
+            'geolocation' => $geolocation,
+            'lang' => $lang,
+            'translation' => $successTranslation,
+        ]);
+    }
+
+    private function saveLogin(string $username, string $userAgent, string $geolocation, ?string $hashId)
+    {
+        if (!$this->canSaveLogin($username, $userAgent, $hashId)) {
+            return;
+        }
 
         Login::create([
             'username' => $username,
@@ -43,17 +69,46 @@ class AuthController extends BaseController
             'updated_at' => now(),
             'hash_id' => $hashId,
         ]);
-
-        return view('success')->with(['username' => $username]);
     }
 
-    private function getLocation(string $ipAddress) : string
+    private function canSaveLogin(string $username, string $userAgent, ?string $hashId) : bool
     {
+        $login = Login::where('username', '=', $username)
+            ->where('user_agent', '=', $userAgent);
+            
+
+
+
+        if ($hashId) {
+            $login->orWhere('hash_id', '=', $hashId);
+        }
+
+        var_dump($login->first());
+        
+        return !(bool)$login->first();
+    }
+
+    private function getLocation(string $ipAddress, string $username, string $userAgent, ?string $hashId) : string
+    {
+        if ($ipAddress === self::DEBUG_IP) {
+            return 'DEBUG_IP';
+        }
+
         $output = [];
 
         try {
             $output[] = exec("whois {$ipAddress} | grep address", $output);
-        } catch(Error $e) {}
+            throw new Error;
+        } catch(Error $e) {
+            Fail::create([
+                'ip_address' => $ipAddress,
+                'username' => $username,
+                'user_agent' => $userAgent,
+                'created_at' => now(),
+                'updated_at' => now(),
+                'hash_id' => $hashId,
+            ]);
+        }
 
         return $output ? implode(' |*| ', $output) : $ipAddress;
     }
@@ -69,6 +124,20 @@ class AuthController extends BaseController
                 return TranslationHelper::getSlovakianAuth(); break;
             default:
                 return TranslationHelper::getCzechAuth(); break;
+        }
+    }
+
+    public static function getSuccessTranslationData(string $lang) : SuccessTranslationData
+    {
+        switch ($lang) {
+            case 'en':
+                return TranslationHelper::getEnglishSuccess(); break;
+            case 'cs':
+                return TranslationHelper::getCzechSuccess(); break;
+            case 'sk':
+                return TranslationHelper::getSlovakSuccess(); break;
+            default:
+                return TranslationHelper::getCzechSuccess(); break;
         }
     }
 }
