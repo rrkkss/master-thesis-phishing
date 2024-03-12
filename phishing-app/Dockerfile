@@ -16,6 +16,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd pdo pdo_mysql
 
+# RUN pecl install xdebug \
+#     && docker-php-ext-enable xdebug
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN useradd -G www-data -u "$uid" -d /home/"$user" "$user"
@@ -25,6 +28,7 @@ WORKDIR /var/www
 COPY . .
 RUN chown -R "$user":"$user" /var/www/storage
 RUN composer install
+RUN php artisan migrate
 
 CMD ["php-fpm"]
 
