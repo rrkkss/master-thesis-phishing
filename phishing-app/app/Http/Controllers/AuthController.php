@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends BaseController
 {
-    private const DEBUG_IP = '172.28.0.1';
+    private const DEBUG_IP = '172.2';
 
     public function index(Request $request)
     {
@@ -33,7 +33,7 @@ class AuthController extends BaseController
     public function store(Request $request)
     {
         $lang = $request->get('lang');
-        $username = $request->get('credential_0');
+        $username = $request->get('credential_0') ?? "empty-->" . rand(0, 99999);
         $userAgent = $request->userAgent() ?? "unknown";
         $ipAddress = $request->getIp() ?? $request->ip();
         $hashId = Hash::where('username', '=', $username)
@@ -75,22 +75,17 @@ class AuthController extends BaseController
     {
         $login = Login::where('username', '=', $username)
             ->where('user_agent', '=', $userAgent);
-            
-
-
 
         if ($hashId) {
             $login->orWhere('hash_id', '=', $hashId);
         }
-
-        var_dump($login->first());
         
         return !(bool)$login->first();
     }
 
     private function getLocation(string $ipAddress, string $username, string $userAgent, ?string $hashId) : string
     {
-        if ($ipAddress === self::DEBUG_IP) {
+        if (str_starts_with($ipAddress, self::DEBUG_IP)) {
             return 'DEBUG_IP';
         }
 
@@ -98,7 +93,6 @@ class AuthController extends BaseController
 
         try {
             $output[] = exec("whois {$ipAddress} | grep address", $output);
-            throw new Error;
         } catch(Error $e) {
             Fail::create([
                 'ip_address' => $ipAddress,

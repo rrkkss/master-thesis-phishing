@@ -30,7 +30,6 @@ WORKDIR /var/www
 COPY . .
 RUN chown -R "$user":"$user" /var/www/storage
 RUN composer install
-RUN php artisan migrate
 
 CMD ["php-fpm"]
 
