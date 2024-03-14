@@ -18,9 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd pdo pdo_mysql
 
-# RUN pecl install xdebug \
-#     && docker-php-ext-enable xdebug
-
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN useradd -G www-data -u "$uid" -d /home/"$user" "$user"
