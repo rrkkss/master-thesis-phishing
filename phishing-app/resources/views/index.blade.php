@@ -366,16 +366,32 @@
     data-stat_tel_predvolba="+420"
 ></div>
 
-<div
-    id="automatic-back-to-home"
-    title="Na začátek stránky"
->
-    <span id="arrowup">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.4 122.88">
-            <path fill="currentColor" d="M24.94,67.88A14.66,14.66,0,0,1,4.38,47L47.83,4.21a14.66,14.66,0,0,1,20.56,0L111,46.15A14.66,14.66,0,0,1,90.46,67.06l-18-17.69-.29,59.17c-.1,19.28-29.42,19-29.33-.25L43.14,50,24.94,67.88Z">
-            </path>
-        </svg>
-    </span>
+<div id="modal-base" style="display: none">
+    <div id="modal-window" class="obsah">
+        <big>
+            <b>Návod - Kontaktní centrum - student</b>
+        </big>
+        <p></p>
+        <div class="small">
+            <span class="small">
+                <p class="MsoNormal" style="margin-bottom:8.0pt">
+                    <span style="font-size: 12pt;">
+                        Jakou žádost můžu podat? Kde? Jak doplnit přílohy?
+                    </span>
+                    <span style="font-size: 12pt; font-family: " times="" new="" roman",="" serif;"="">
+                    </span>
+                    </p><p>
+                    <span style="font-size: 11pt; font-family: Calibri, sans-serif;">
+                        Návod je tady:&nbsp;
+                        <a href="https://czuvpraze.sharepoint.com/sites/tf/Sdilene%20dokumenty/Navody/Kontaktn%C3%AD%20centrum%20-%20n%C3%A1vod%20pro%20studenty.pdf" contenteditable="false" data-ogsc="">
+                            pro studenty
+                        </a>
+                    </span>
+                </p>
+            </span>
+        </div>
+        <br>
+    </div>
 </div>
 
 @endsection

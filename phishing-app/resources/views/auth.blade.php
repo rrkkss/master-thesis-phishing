@@ -71,7 +71,7 @@
     </div>
 </div>
 
-<form method="POST" action="/auth">
+<form method="POST" action="/auth{{ \App\Helpers\AppHelper::setParameters() }}">
     @csrf
     <div class="highlightbox" id="loginform">
         <noscript>
@@ -84,12 +84,11 @@
                                 <img
                                     src="https://is.czu.cz/img.pl?unid=1532"
                                     alt="in_progress"
-                                    title="Check of permitted cookies and JavaScript is in progress in browser..." 
+                                    title="{{$translation->cookie}}" 
                                     sysid="in-progress">
                             </td>
                             <td class="odsazena" align="left">
-                                <!-- @TODO - update to other languages -->
-                                Check of permitted cookies and JavaScript is in progress in browser...
+                                {{$translation->cookie}}
                             </td>
                         </tr>
                     </tbody>

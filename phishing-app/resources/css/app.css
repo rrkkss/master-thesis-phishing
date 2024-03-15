@@ -3983,7 +3983,6 @@ ul {
 }
 
 .phishing-warning {
-
     border: solid 1rem transparent;
     background: repeating-linear-gradient(
         -45deg,
@@ -4005,4 +4004,25 @@ ul {
 
 .phishing-wrong-data {
     background-color: rgba(255, 100, 100, 0.3);
+}
+
+#modal-base {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#modal-window {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
 }
