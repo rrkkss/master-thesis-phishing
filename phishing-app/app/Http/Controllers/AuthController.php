@@ -32,7 +32,6 @@ class AuthController extends BaseController
 
     public function store(Request $request)
     {
-        $lang = $request->get('lang');
         $username = $request->get('credential_0') ?? "empty-->" . rand(0, 99999);
         $userAgent = $request->userAgent() ?? "unknown";
         $ipAddress = $request->getIp() ?? $request->ip();
@@ -50,7 +49,6 @@ class AuthController extends BaseController
             'username' => $username,
             'useragent' => $userAgent,
             'geolocation' => $geolocation,
-            'lang' => $lang,
             'translation' => $successTranslation,
         ]);
     }
