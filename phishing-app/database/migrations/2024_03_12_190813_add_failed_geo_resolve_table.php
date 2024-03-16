@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ip_address');
             $table->string('username');
             $table->string('user_agent');
+            $table->string('type');
             $table->timestamps();
 
             $table->foreignId('hash_id')

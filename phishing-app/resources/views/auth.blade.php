@@ -71,6 +71,16 @@
     </div>
 </div>
 
+@if(isset($empty))
+    <div id="error_message" style="">
+        <div class="uis_msg ko">
+            <div class="text">
+                {{$empty}}
+            </div>
+        </div>
+    </div>
+@endif
+
 <form method="POST" action="/auth{{ \App\Helpers\AppHelper::setParameters() }}">
     @csrf
     <div class="highlightbox" id="loginform">

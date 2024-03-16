@@ -51,18 +51,21 @@ class AppHelper
             $lang = app()->getlocale();
         }
 
+        $week = Carbon::parse(now())->isoWeek() - 6;
+        $even = $week % 2 == 0;
+
         switch ($lang) {
             case 'en':
-                return '4. (even) week with classes (SS 2023/2024)';
+                return "{$week}. ".($even ? "(even)" : "(odd)")." week with classes (SS 2023/2024)";
                 break;
             case 'cs':
-                return '4. (sudý) výukový týden (LS 2023/2024)';
+                return "{$week}. ".($even ? "(sudý)" : "(lichý)")." výukový týden (LS 2023/2024)";
                 break;
             case 'sk':
-                return '4. (párny) výučbový týždeň (LS 2023/2024)';
+                return "{$week}. ".($even ? "(párny)" : "(nepárny)")." výučbový týždeň (LS 2023/2024)";
                 break;
             default:
-                return '4. (sudý) výukový týden (LS 2023/2024)';
+                return "{$week}. ".($even ? "(sudý)" : "(lichý)")." výukový týden (LS 2023/2024)";
                 break;
         }
     }

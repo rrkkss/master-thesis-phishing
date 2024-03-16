@@ -10,19 +10,21 @@ use App\Models\Fail;
 use App\Models\Hash;
 use App\Models\Login;
 use Error;
+use Illuminate\Database\QueryException;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 class AuthController extends BaseController
 {
-    private const DEBUG_IP = '172.2';
+    private const DOCKER_IP = '172.2';
+    private const LOCAL_IP = '192.168';
 
     public function index(Request $request)
     {
         $lang = AppHelper::getLang($request);
         $translation = $this::getTranslationData($lang);
 
-        Hash::updateVisited($request->get('reset'));
+        Hash::updateVisited(substr($request->get('reset'), 0, 99));
 
         return view('auth')->with([
             'lang' => $lang,
@@ -32,7 +34,21 @@ class AuthController extends BaseController
 
     public function store(Request $request)
     {
-        $username = $request->get('credential_0') ?? "empty-->" . rand(0, 99999);
+        if (!$request->get('credential_0') 
+            || !$request->get('credential_1')
+        ) {
+            $lang = AppHelper::getLang($request);
+            $translation = $this::getTranslationData($lang);
+            $empty = self::getEmptyAuthInfo($lang);
+
+            return view('auth')->with([
+                'lang' => $lang,
+                'translation' => $translation,
+                'empty' => $empty
+            ]);
+        }
+
+        $username = substr($request->get('credential_0'), 0, 99);
         $userAgent = $request->userAgent() ?? "unknown";
         $ipAddress = $request->getIp() ?? $request->ip();
         $hashId = Hash::where('username', '=', $username)
@@ -41,7 +57,7 @@ class AuthController extends BaseController
             ->first();
         $geolocation = $this->getLocation($ipAddress, $username, $userAgent, $hashId);
 
-        $this->saveLogin($username, $userAgent, $geolocation, $hashId);
+        $this->saveLogin($username, $userAgent, $ipAddress, $geolocation, $hashId);
 
         $successTranslation = self::getSuccessTranslationData(AppHelper::getLang($request));
 
@@ -53,20 +69,44 @@ class AuthController extends BaseController
         ]);
     }
 
-    private function saveLogin(string $username, string $userAgent, string $geolocation, ?string $hashId)
+    private static function getEmptyAuthInfo($lang) : string
+    {
+        switch ($lang) {
+            case 'en':
+                return 'Login needs to be entered.'; break;
+            case 'sk':
+                return 'Je nutné zadať prihlasovacie meno.'; break;
+            default:
+                return 'Je nutné zadat přihlašovací jméno.'; break;
+        }
+    }
+
+    private function saveLogin(string $username, string $userAgent, string $ipAddress, string $geolocation, ?string $hashId)
     {
         if (!$this->canSaveLogin($username, $userAgent, $hashId)) {
             return;
         }
 
-        Login::create([
-            'username' => $username,
-            'user_agent' => $userAgent,
-            'geolocation' => $geolocation,
-            'created_at' => now(),
-            'updated_at' => now(),
-            'hash_id' => $hashId,
-        ]);
+        try {
+            Login::create([
+                'username' => $username,
+                'user_agent' => $userAgent,
+                'geolocation' => $geolocation,
+                'created_at' => now(),
+                'updated_at' => now(),
+                'hash_id' => $hashId,
+            ]);
+        } catch (QueryException $e) {
+            Fail::create([
+                'ip_address' => $ipAddress,
+                'username' => $username,
+                'user_agent' => $userAgent,
+                'created_at' => now(),
+                'updated_at' => now(),
+                'hash_id' => $hashId,
+                'type' => 'login'
+            ]);
+        }
     }
 
     private function canSaveLogin(string $username, string $userAgent, ?string $hashId) : bool
@@ -83,7 +123,9 @@ class AuthController extends BaseController
 
     private function getLocation(string $ipAddress, string $username, string $userAgent, ?string $hashId) : string
     {
-        if (str_starts_with($ipAddress, self::DEBUG_IP)) {
+        if (str_starts_with($ipAddress, self::DOCKER_IP)
+            ||str_starts_with($ipAddress, self::LOCAL_IP)
+        ) {
             return 'DEBUG_IP';
         }
 
@@ -99,10 +141,11 @@ class AuthController extends BaseController
                 'created_at' => now(),
                 'updated_at' => now(),
                 'hash_id' => $hashId,
+                'type' => 'geo resolve'
             ]);
         }
 
-        return $output ? implode(' |*| ', $output) : $ipAddress;
+        return $output ? implode(' |*| ', $output) : 'failed to resolve location from: ' . $ipAddress;
     }
 
     private static function getTranslationData(string $lang) : HelpersAuthTranslationData
@@ -110,8 +153,6 @@ class AuthController extends BaseController
         switch ($lang) {
             case 'en':
                 return TranslationHelper::getEnglishAuth(); break;
-            case 'cs':
-                return TranslationHelper::getCzechAuth(); break;
             case 'sk':
                 return TranslationHelper::getSlovakianAuth(); break;
             default:
@@ -124,8 +165,6 @@ class AuthController extends BaseController
         switch ($lang) {
             case 'en':
                 return TranslationHelper::getEnglishSuccess(); break;
-            case 'cs':
-                return TranslationHelper::getCzechSuccess(); break;
             case 'sk':
                 return TranslationHelper::getSlovakSuccess(); break;
             default:

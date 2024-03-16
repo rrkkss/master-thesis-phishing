@@ -557,7 +557,7 @@ class TranslationHelper
     public static function getEnglishSuccess() : SuccessTranslationData
     {
         return new SuccessTranslationData(
-            'You have been the victim of (fake) phishing!',
+            'You have been a victim of (fake) phishing!',
             'This is a diploma thesis at the faculty of FEM',
             'Contact: xholm073',
             'Source code:',
