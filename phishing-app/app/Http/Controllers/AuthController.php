@@ -129,23 +129,27 @@ class AuthController extends BaseController
             return 'DEBUG_IP';
         }
 
-        $output = [];
+        return $ipAddress;
 
-        try {
-            $output[] = exec("whois {$ipAddress} | grep address", $output);
-        } catch(Error $e) {
-            Fail::create([
-                'ip_address' => $ipAddress,
-                'username' => $username,
-                'user_agent' => $userAgent,
-                'created_at' => now(),
-                'updated_at' => now(),
-                'hash_id' => $hashId,
-                'type' => 'geo resolve'
-            ]);
-        }
+        // @TODO Hetzner is blocked from using whois gg
 
-        return $output ? implode(' |*| ', $output) : 'failed to resolve location from: ' . $ipAddress;
+        // $output = [];
+
+        // try {
+        //     $output[] = exec("whois {$ipAddress} | grep address", $output);
+        // } catch(Error $e) {
+        //     Fail::create([
+        //         'ip_address' => $ipAddress,
+        //         'username' => $username,
+        //         'user_agent' => $userAgent,
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //         'hash_id' => $hashId,
+        //         'type' => 'geo resolve'
+        //     ]);
+        // }
+
+        // return $output ? implode(' |*| ', $output) : 'failed to resolve location from: ' . $ipAddress;
     }
 
     private static function getTranslationData(string $lang) : HelpersAuthTranslationData
