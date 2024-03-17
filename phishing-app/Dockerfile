@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 ARG user
 ARG uid
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         unzip \
         whois \
         netbase \
+        certbot \
     && apt-get clean
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
@@ -20,16 +21,18 @@ RUN docker-php-ext-install gd pdo pdo_mysql
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN useradd -G www-data -u "$uid" -d /home/"$user" "$user"
+RUN groupadd -g 1000 "$user"
+RUN useradd -u 1000 -ms /bin/bash -g "$user" "$user"
+
+COPY . /var/www
+COPY --chown="$user":"$user" . /var/www
 
 WORKDIR /var/www
 
-COPY . .
-RUN chown -R "$user":"$user" /var/www/storage
-RUN composer install
+RUN chown -R $USER:www-data storage
+RUN chmod -R 775 storage
+
+USER "$user"
 
 CMD ["php-fpm"]
-
-USER $user
-
 EXPOSE 9000

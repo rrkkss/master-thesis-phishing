@@ -23,16 +23,19 @@ services:
     image: mysql:8.0.36
     container_name: database
     restart: unless-stopped
-    command: --default-authentication-plugin=mysql_native_password -u mysql
+    command: --default-authentication-plugin=mysql_native_password
     tty: true
     ports:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
     networks:
       - app-network
+    volumes:
+      - dbdata:/var/lib/mysql
 
   webserver:
     image: nginx:alpine
@@ -40,13 +43,28 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "8000:80"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./:/var/www
       - ./nginx:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     networks:
       - app-network
+
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot
+  #   volumes: 
+  #     - ./certbot/conf:/etc/letsencrypt
+  #     - ./certbot/www:/var/www/certbot
+  #   command: certonly --webroot -w /var/www/certbot --force-renewal --email martinholava@seznam.cz -d isczu.cz --agree-tos
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
