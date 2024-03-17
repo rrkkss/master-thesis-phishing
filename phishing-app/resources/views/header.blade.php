@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name='robots' content='noindex,follow'/>
         <title>{{ \App\Helpers\AppHelper::getSiteName(request()->get('lang')) }}</title>
         <link rel="icon" href="{{ URL::asset('img/favicon.ico') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
