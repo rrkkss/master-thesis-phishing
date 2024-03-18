@@ -30,9 +30,9 @@
                         <li>
                             {{$translation->nopwd}}
                             <ul>
-                                <li>{{$translation->login}} <span class="phishing-data">{{$username}}</span> </li>
+                                <li>{{$translation->login}} <span class="phishing-data">{{$username}}</span></li>
                                 <li>user agent - <span class="phishing-data">{{$useragent}}</span></li>
-                                <li>{{$translation->geo}} <span class="phishing-data">{{$geolocation}}</span> (Hetzner hosting is blocked from using whois)</li>
+                                <li>{{$translation->geo}} <span class="phishing-data">{{$geolocation}}</span></li>
                             </ul>
                         </li>
                     </ul>

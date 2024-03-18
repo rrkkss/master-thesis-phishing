@@ -558,8 +558,8 @@ class TranslationHelper
     {
         return new SuccessTranslationData(
             'You have been a victim of (fake) phishing!',
-            'This is a diploma thesis at the faculty of FEM',
-            'Contact: xholm073',
+            'This is a diploma thesis at the faculty of FEM focused on the topic of phishing and creation of a phishing portal',
+            'Contact: Martin Holava (xholm073), supervisor: Ing. Dana Vynikarová, PhD.',
             'Source code:',
             'Your password has not been accessed, the following 3 entries have been saved:',
             'login name -',
@@ -568,7 +568,7 @@ class TranslationHelper
             'The address of this site is',
             ', but the real one is',
             'The password is stored in the browser, it cannot be removed by the website itself',
-            'HTTPS protocol is not issued by GEANT Vereniging',
+            'A site having SSL protocol (HTTPS) doesn\'t mean it is a genuine website',
             'If you have entered nonsensical data, you have also done wrong - the page may be running javascript files that can exploit (unknown) vulnerabilities to obtain sensitive data by other means',
             'If you have 2-factor authentication, your data would probably be fine, but a weaknesses in the system can be exploited and is therefore not a catch-all tool - caution is still needed',
         );
@@ -578,8 +578,8 @@ class TranslationHelper
     {
         return new SuccessTranslationData(
             'Stali jste se obětí (falešného) phishingu!',
-            'Jedná o diplomovou práci na fakultě PEF',
-            'Kontakt: xholm073',
+            'Jedná se o diplomovou práci na fakultě PEF zaměřenou na téma phishingu a vytvoření phishingového portálu',
+            'Kontakt: Martin Holava (xholm073), vedoucí: Ing. Dana Vynikarová, PhD.',
             'Zdrojový kód:',
             'S vaším heslem nebylo nijak nakládáno, byly uloženy následující 3 údaje:',
             'přihlašovací jméno -',
@@ -588,7 +588,7 @@ class TranslationHelper
             'Adresa tohoto webu je',
             ', skutečná je však',
             'Heslo je uložené v prohlížeči, nelze jej odstranit ze strany stránky',
-            'HTTPS protokol není vystavený od GEANT Vereniging',
+            'Přítomnost SSL certifikátu (HTTPS) neznamená, že stránka je opravu skutečná',
             'Pokud jste vložili nesmyslné údaje, učinili jste také špatně - na stránce mohou být spuštěny javascript soubory, které mohou využívat (ne)známých zranitelností a získat tak citlivé údaje jinou cestou',
             'Pokud máte 2fázové ověřování, vaše data by byla pravděpodobně v pořádku, ale může se využít slabiny v systému a není proto všespásným nástrojem -  i s ním je potřeba opatrnosti'
         );
@@ -598,8 +598,8 @@ class TranslationHelper
     {
         return new SuccessTranslationData(
             'Stali ste sa obeťou (falošného) phishingu!',
-            'Ide o diplomovú prácu na fakulte PEF',
-            'Kontakt: xholm073',
+            'Ide o diplomovú prácu na fakulte PEF zameranú na tému phishingu a vytvorenie phishingového portálu',
+            'Kontakt: Martin Holava (xholm073), vedoucí: Ing. Dana Vynikarová, PhD.',
             'Zdrojový kód:',
             'Vaše heslo nebolo nijako spracované, boli uložené tieto 3 údaje:',
             'přihlašovací jméno -',
@@ -608,7 +608,7 @@ class TranslationHelper
             'Adresa tejto webovej stránky je',
             'ale skutočný je',
             'Heslo je uložené v prehliadači, nie je možné ho zo stránky odstrániť',
-            'Protokol HTTPS nie je vydaný spoločnosťou GEANT Vereniging',
+            'Prítomnosť certifikátu SSL (HTTPS) neznamená, že stránka je pravá',
             'Pokud jste vložili nesmyslné údaje, učinili jste také špatně - na stránce mohou být spuštěny javascript soubory, které mohou využívat (ne)známých zranitelností a získat tak citlivé údaje jinou cestou',
             'Ak máte dvojfázové overovanie, vaše údaje budú pravdepodobne v poriadku, ale môže zneužívať slabiny systému, a preto nie je všeliekom - aj pri ňom je potrebná opatrnosť.',
         );

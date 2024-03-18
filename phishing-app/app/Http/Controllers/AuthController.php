@@ -39,13 +39,20 @@ class AuthController extends BaseController
         ) {
             $lang = AppHelper::getLang($request);
             $translation = $this::getTranslationData($lang);
-            $empty = self::getEmptyAuthInfo($lang);
 
-            return view('auth')->with([
-                'lang' => $lang,
-                'translation' => $translation,
-                'empty' => $empty
-            ]);
+            if (!$request->get('credential_0')) {
+                return view('auth')->with([
+                    'lang' => $lang,
+                    'translation' => $translation,
+                    'empty' => self::getEmptyUsernameInfo($lang)
+                ]);
+            } else if (!$request->get('credential_1')) {
+                return view('auth')->with([
+                    'lang' => $lang,
+                    'translation' => $translation,
+                    'empty' => self::getEmptyPasswordInfo($lang)
+                ]);
+            }
         }
 
         $username = substr($request->get('credential_0'), 0, 99);
@@ -69,7 +76,7 @@ class AuthController extends BaseController
         ]);
     }
 
-    private static function getEmptyAuthInfo($lang) : string
+    private static function getEmptyUsernameInfo($lang) : string
     {
         switch ($lang) {
             case 'en':
@@ -78,6 +85,18 @@ class AuthController extends BaseController
                 return 'Je nutné zadať prihlasovacie meno.'; break;
             default:
                 return 'Je nutné zadat přihlašovací jméno.'; break;
+        }
+    }
+
+    private static function getEmptyPasswordInfo($lang) : string
+    {
+        switch ($lang) {
+            case 'en':
+                return 'Password is required.'; break;
+            case 'sk':
+                return 'Je nutné zadať heslo.'; break;
+            default:
+                return 'Je nutné zadat heslo.'; break;
         }
     }
 
@@ -130,26 +149,6 @@ class AuthController extends BaseController
         }
 
         return $ipAddress;
-
-        // @TODO Hetzner is blocked from using whois gg
-
-        // $output = [];
-
-        // try {
-        //     $output[] = exec("whois {$ipAddress} | grep address", $output);
-        // } catch(Error $e) {
-        //     Fail::create([
-        //         'ip_address' => $ipAddress,
-        //         'username' => $username,
-        //         'user_agent' => $userAgent,
-        //         'created_at' => now(),
-        //         'updated_at' => now(),
-        //         'hash_id' => $hashId,
-        //         'type' => 'geo resolve'
-        //     ]);
-        // }
-
-        // return $output ? implode(' |*| ', $output) : 'failed to resolve location from: ' . $ipAddress;
     }
 
     private static function getTranslationData(string $lang) : HelpersAuthTranslationData
