@@ -21,11 +21,6 @@ class IndexController extends BaseController
         ]);
     }
 
-    public function store(Request $request)
-    {
-        
-    }
-
     private static function getTranslationData(string $lang) : HelpersIndexTranslationData
     {
         switch ($lang) {

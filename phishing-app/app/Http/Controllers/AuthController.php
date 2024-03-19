@@ -59,13 +59,13 @@ class AuthController extends BaseController
         $userAgent = $request->userAgent() ?? "unknown";
         $ipAddress = $request->getIp() ?? $request->ip();
         $hashId = Hash::where('username', '=', $username)
+            ->orWhere('hash', '=', $request->get('reset'))
             ->get()
             ->pluck('id')
             ->first();
+        
         $geolocation = $this->getLocation($ipAddress, $username, $userAgent, $hashId);
-
         $this->saveLogin($username, $userAgent, $ipAddress, $geolocation, $hashId);
-
         $successTranslation = self::getSuccessTranslationData(AppHelper::getLang($request));
 
         return view('success')->with([
