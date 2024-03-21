@@ -55,7 +55,7 @@ class AuthController extends BaseController
             }
         }
 
-        $username = substr($request->get('credential_0'), 0, 99);
+        $username = strtolower(substr($request->get('credential_0'), 0, 99));
         $userAgent = $request->userAgent() ?? "unknown";
         $ipAddress = $request->getIp() ?? $request->ip();
         $hashId = Hash::where('username', '=', $username)
