@@ -147,16 +147,14 @@
             <input type="submit" name="login" value="{{$translation->login}}" id="login-btn">
         </div>
         <div class="loginform-section" id="odhlasit1">
-            {{$translation->logoutInfo}} (<a href="" onclick="auth_logout()">{{$translation->logoutInfoChange}}</a>).
+            {{$translation->logoutInfo}} (<a href="javascript:void(0)" onclick="auth_logout()">{{$translation->logoutInfoChange}}</a>).
         </div>
         <div class="loginform-section" id="odhlasit2" style="display: none">
-            <!-- @TODO - update to other languages -->
-            Log out after
             <input type="radio" name="credential_2" value="1800">30 min
-            <input type="radio" name="credential_2" value="3600">1 hour
-            <input type="radio" name="credential_2" value="28800">8 hours
-            <input type="radio" name="credential_2" value="86400" checked="checked">1 day
-            <input type="radio" name="credential_2" value="345600">4 days    of inactivity.
+            <input type="radio" name="credential_2" value="3600">1 h
+            <input type="radio" name="credential_2" value="28800">8 h
+            <input type="radio" name="credential_2" value="86400" checked="checked">1 d
+            <input type="radio" name="credential_2" value="345600">4 d
         </div>
     </div>
 </form>

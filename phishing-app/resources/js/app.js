@@ -8,6 +8,9 @@ function open_helper_modal() {
 function auth_logout() {
     const logout = document.getElementById("odhlasit2");
     logout.style.display = "block";
+
+    const logoutMessage = document.getElementById("odhlasit1");
+    logoutMessage.style.display = "none";
 }
 
 window.onclick = function (event) {
